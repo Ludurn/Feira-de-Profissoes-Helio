@@ -9,11 +9,11 @@ app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 
 const con = new Client ({
-    host: 'localhost',
-    user: 'postgres',
-    port: 5432,
-    password: 'tetris',
-    database: 'imagedb'
+    host: process.env.DB_HOST || 'localhost',
+    user: process.env.DB_USER || 'postgres',
+    port: process.env.DB_PORT || 5432,
+    password: process.env.DB_PASSWORD || 'tetris',
+    database: process.env.DB_NAME || 'imagedb'
 })
 
 con.connect().then(() => {console.log('connected')})
