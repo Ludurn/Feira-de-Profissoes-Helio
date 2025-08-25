@@ -1,0 +1,60 @@
+# version: '3.8'
+name: helio-profissoes
+services:
+  api:
+    build: ./api
+    container_name: api-server
+    develop:
+      watch:
+        - action: sync
+          path: ./api
+          target: ./app/
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: package.json
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_HOST=host.docker.internal
+      - DB_USER=postgres
+      - DB_PASSWORD=tetris
+      - DB_NAME=imagedb
+      - DB_PORT=5432
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - /app/node_modules
+    depends_on:
+      - postgres
+
+  web:
+    build: ./client
+    container_name: client-server
+    develop:
+      watch:
+        - action: sync
+          path: ./client
+          target: ./app/src
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: package.json
+    ports:
+      - '8081:8081'
+    volumes:
+      - /app/src/node_modules
+
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=tetris
+      - POSTGRES_DB=imagedb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
