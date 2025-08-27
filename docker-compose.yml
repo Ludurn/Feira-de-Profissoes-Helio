@@ -19,7 +19,7 @@ services:
       - DB_HOST=host.docker.internal
       - DB_USER=postgres
       - DB_PASSWORD=tetris
-      - DB_NAME=imagedb
+      - DB_NAME=feirahelio
       - DB_PORT=5432
     extra_hosts:
       - "host.docker.internal:host-gateway"
@@ -50,7 +50,7 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=tetris
-      - POSTGRES_DB=imagedb
+      - POSTGRES_DB=feirahelio
     ports:
       - "5432:5432"
     volumes:
