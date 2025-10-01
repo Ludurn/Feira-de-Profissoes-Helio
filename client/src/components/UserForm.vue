@@ -47,11 +47,7 @@ const submitForm = async () => {
 
     const response = await axios.post('http://localhost:3000/sendData/',
       formData,
-      {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      })
+    )
     if (response.data == 'SUCCESS') {
       message.value = 'Formulário enviado'
     } else {
@@ -64,17 +60,9 @@ const submitForm = async () => {
 
 const getImage = async () => {
   try {
-    await axios.get('http://localhost:3000/getImage/30', { responseType: 'blob'})
+    await axios.get('http://localhost:3000/getImage/3')
       .then((response) => {
-        console.log(response.data)
-        const blob = new Blob([response.data])
-        const url = window.URL.createObjectURL(blob)
-
-        setTimeout(() => {
-          window.URL.revokeObjectURL(url)
-        }, 100)
-
-        image_url.value = url
+        image_url.value = response.data.image_url
       })
       .catch((error) => {
         message.value = error
