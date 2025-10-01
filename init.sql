@@ -24,13 +24,13 @@ CREATE TABLE user_table (
 CREATE TABLE image_table (
 	image_id SERIAL PRIMARY KEY,
 	user_id INTEGER REFERENCES user_table,
-	image_data BYTEA
+	image_url TEXT,
+	public_id VARCHAR(225)
 );
 
 CREATE TABLE adm_table (
 	adm_id SERIAL PRIMARY KEY,
 	adm_name VARCHAR(15),
-	adm_cod CHAR(10),
 	adm_key CHAR(7)
 );
 
