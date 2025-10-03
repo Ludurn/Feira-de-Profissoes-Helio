@@ -27,8 +27,6 @@ services:
       - "host.docker.internal:host-gateway"
     volumes:
       - /app/node_modules
-    depends_on:
-      - postgres
 
   web:
     build: ./client
@@ -46,17 +44,3 @@ services:
       - '8081:8081'
     volumes:
       - /app/src/node_modules
-
-  postgres:
-    image: postgres:13
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=tetris
-      - POSTGRES_DB=feirahelio
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
-volumes:
-  postgres_data:

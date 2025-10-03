@@ -21,6 +21,7 @@
 </template>
 <script setup lang="ts">
 import axios from 'axios'
+import { API_URL } from '@/composables/useApi'
 import { ref } from 'vue'
 
 const txt_name = ref<string>('')
@@ -45,7 +46,7 @@ const submitForm = async () => {
       formData.append('files', file)
     })
 
-    const response = await axios.post('http://localhost:3000/sendData/',
+    const response = await axios.post(`${API_URL.value}/sendData/`,
       formData,
     )
     if (response.data == 'SUCCESS') {
@@ -60,7 +61,7 @@ const submitForm = async () => {
 
 const getImage = async () => {
   try {
-    await axios.get('http://localhost:3000/getImage/1')
+    await axios.get(`${API_URL.value}/getImage/1`)
       .then((response) => {
         image_url.value = response.data.image_url
       })

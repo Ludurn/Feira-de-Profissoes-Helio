@@ -6,7 +6,7 @@ const cloudinary = require('./config/cloudinary')
 const streamifier = require('streamifier')
 const { query } = require('express-validator')
 
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 const ALLOWED_FILE_TYPES = ['image/jpeg', 'image/png', 'image/webp']
 
 const app = express()
