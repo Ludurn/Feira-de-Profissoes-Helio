@@ -1,45 +1,40 @@
-const {Client} = require('pg')
 const express = require('express')
 const cors = require('cors')
 const multer = require('multer')
-const cloudinary = require('cloudinary').v2
+const supabase = require('./config/supabase')
+const cloudinary = require('./config/cloudinary')
 const streamifier = require('streamifier')
 const { query } = require('express-validator')
 
-const app = express()
-const port = 3000
+const PORT = 3000
+const ALLOWED_FILE_TYPES = ['image/jpeg', 'image/png', 'image/webp']
 
+const app = express()
 app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-
-cloudinary.config({
-    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-    api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET
-})
 
 const upload = multer({
     storage: multer.memoryStorage()
 })
 
-const con = new Client ({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    port: process.env.DB_PORT,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME
-})
+function registerUser(name, email, callback) {
+    supabase
+        .from('user_table')
+        .insert({ user_name: name, user_email: email})
+        .select('user_id')
+        .single()
+        .then(({ data, error }) => {
+            if (error) return callback(error)
+            callback(null, data.user_id)
+        })
+}
 
-con.connect().then(() => {console.log('connected')})
-
-function registerUser(con, name, email, callback) {
-    const query = 'INSERT INTO user_table (user_name, user_email) VALUES ($1, $2) RETURNING user_id'
-    
-    con.query(query, [name, email], (err, result) => {
-        if (err) return callback(err)
-        callback(null, result.rows[0].user_id)
-    })
+function registerImage(user_id, image_url, public_id, callback) {
+    supabase
+        .from('image_table')
+        .insert({ user_id, image_url, public_id})
+        .then(({ error }) => callback(error))
 }
 
 function uploadToCloudinary(file_buffer, options, callback) {
@@ -52,11 +47,7 @@ function uploadToCloudinary(file_buffer, options, callback) {
     streamifier.createReadStream(file_buffer).pipe(uploadStream)
 }
 
-function registerImage(con, user_id, image_url, public_id, callback) {
-    const query2 = 'INSERT INTO image_table (user_id, image_url, public_id) VALUES ($1, $2, $3)'
 
-    con.query(query2, [user_id, image_url, public_id], callback)
-}
 
 app.post('/sendData', upload.single('files'), (req, res) => {
     const { name, email } = req.body ?? {}
@@ -69,14 +60,13 @@ app.post('/sendData', upload.single('files'), (req, res) => {
     if (!file) return res.send('NO FILE')
 
     const file_type = file.mimetype
-    const allowed_types = ['image/jpeg', 'image/png', 'image/webp']
 
-    if (!allowed_types.includes(file_type)) {
+    if (!ALLOWED_FILE_TYPES.includes(file_type)) {
         return res.send('NO FILE TYPE')
     }
 
-    registerUser(con, name, email, (err, user_id) => {
-        if (err) return res.send(err)
+    registerUser(name, email, (err, user_id) => {
+        if (err) return res.send(err.message)
         
         const file_name = file.originalname
         const file_buffer = file.buffer
@@ -87,8 +77,8 @@ app.post('/sendData', upload.single('files'), (req, res) => {
             const image_url = cloudinaryRes.secure_url
             const public_id = cloudinaryRes.public_id
 
-            registerImage(con, user_id, image_url, public_id, (err2) => {
-                if (err2) return res.send(err2)
+            registerImage(user_id, image_url, public_id, (err2) => {
+                if (err2) return res.send(err2.message)
 
                 res.send('SUCCESS')
             })
@@ -99,34 +89,31 @@ app.post('/sendData', upload.single('files'), (req, res) => {
 app.get('/getData/:token', (req, res) => {
     const token = req.params.token
 
-    const query = 'SELECT * FROM user_table WHERE user_id = $1'
-
-    con.query(query, [token], (err, result) => {
-        if (err) {
-            res.send('ERROR')
-        } else if (result.rowCount <= 0) {
-            res.send('NULL')
-        } else {
-            res.send(result.rows[0])
-        }
-    })
+    supabase
+        .from('user_table')
+        .select('*')
+        .eq('user_id', token)
+        .single()
+        .then(({ data, error }) => {
+            if (error) return res.send('ERROR')
+            if (!data) return res.send('NULL')
+            res.json(data)
+        })
 })
 
 app.get('/getImage/:token', (req, res) => {
     const token = req.params.token
 
-    const query = 'SELECT image_url FROM image_table WHERE user_id = $1'
-
-    con.query(query, [token], (err, result) => {
-        if (err) {
-            res.send('ERROR')
-        } else if (result.rowCount <= 0) {
-            res.send('NULL')
-        } else {
-            const image_url = result.rows[0]
-            res.send(image_url)
-        }
-    })
+    supabase
+        .from('image_table')
+        .select('image_url')
+        .eq('user_id', token)
+        .single()
+        .then(({ data, error }) => {
+            if (error) return res.send('ERROR')
+            if (!data) return res.send('NULL')
+            res.json(data)
+        })
 })
 
-app.listen(port)
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`))

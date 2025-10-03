@@ -16,7 +16,7 @@ services:
     ports:
       - "3000:3000"
     env_file:
-      - /api/cloudinary_info.env
+      - /api/keys_info.env
     environment:
       - DB_HOST=host.docker.internal
       - DB_USER=postgres

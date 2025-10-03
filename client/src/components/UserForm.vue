@@ -60,7 +60,7 @@ const submitForm = async () => {
 
 const getImage = async () => {
   try {
-    await axios.get('http://localhost:3000/getImage/3')
+    await axios.get('http://localhost:3000/getImage/1')
       .then((response) => {
         image_url.value = response.data.image_url
       })

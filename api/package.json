@@ -3,15 +3,23 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "api-serve": "nodemon server.js"
+    "api-serve": "nodemon server.js",
+    "supabase:init": "npx supabase init",
+    "supabase:login": "npx supabase login",
+    "supabase:link": "npx supabase link --project-ref $SUPABASE_PROJECT_REF",
+    "migration:new": "npx supabase migration new",
+    "db:push": "npx supabase db push",
+    "db:exec": "npx supabase db execute"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@supabase/supabase-js": "^2.58.0",
     "cloudinary": "^2.7.0",
     "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "express-validator": "^7.2.1",
     "multer": "^2.0.2",
@@ -19,6 +27,7 @@
     "streamifier": "^0.1.1"
   },
   "devDependencies": {
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "supabase": "^2.48.3"
   }
 }
