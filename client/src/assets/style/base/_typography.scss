@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Handmade';
+  src: url('@/assets/fonts/SimpleHandmade.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+    font-family: 'Handmade', sans-serif;
+}
+
+.title-100 {
+  font-size: 100px;
+}
+
+.title-80 {
+  font-size: 80px;
+}

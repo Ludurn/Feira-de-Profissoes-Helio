@@ -1,0 +1,45 @@
+body {
+  background-color: #e4a277;
+}
+
+.home {
+  display: flex;
+  flex-direction: row;
+}
+
+#coffee-mug {
+  width: 23rem;
+  margin-right: 1rem;
+}
+
+#stabilo {
+  width: 20rem;
+}
+
+@for $i from 1 through 3 {
+  #column-#{$i} {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    height: 100vh;
+    margin: auto;
+  }
+}
+
+#column-1 {
+  gap: 12rem;
+}
+
+#column-2 {
+  width: 46rem;
+  text-align: center;
+
+  h1 {
+    margin-top: 7rem;
+    font-weight: normal;
+  }
+}
+
+#column-3 {
+  gap: 7rem;
+}
