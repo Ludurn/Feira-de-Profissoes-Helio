@@ -9,7 +9,6 @@
 .tape {
   position: absolute;
   top: -4.4rem;
-  transform: matrix(1, 0, 0, 1, -0.00, -0.00);
 
   img {
     width: 13rem;
@@ -17,28 +16,33 @@
   }
 }
 
+$polar-by-w: 14rem;
+
 .polaroid-body {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1.25rem;
-  width: 15rem;
+  width: $polar-by-w;
   height: 17.8rem;
   box-shadow: 0px 7px 4px 0px #00000080;
   background: #ffffffFF;
+  cursor: pointer;
 }
+
+$photo-w: 12rem;
 
 .photo {
   display: block;
-  width: 13rem;
+  width: $photo-w;
   height: 13rem;
 }
 
 .shield {
   position: absolute;
   background-color: #000000;
-  width: 13rem;
+  width: calc($photo-w / $polar-by-w * 100%);
   height: 13rem;
 }
 

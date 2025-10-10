@@ -1,21 +1,17 @@
 <template>
-  <div id="home">
+  <div id="diary">
     <div id="column-1">
-      <div id="coffee-mug">
-        <img width="100%" :src="coffeeMug" alt="coffee mug">
+      <div id="pencil">
+        <img width="100%" :src="pencil" alt="pencil">
       </div>
       <PolaroidProp id="polaroid1" :reveal="shield" label="ola" :imgUrl="polaroid2" />
     </div>
     <div id="column-2">
-      <h1 class="title-80">Comunidade <br> do <br> Hélio</h1>
-      <div id="options">
-        <LinkButton route="/diary" label="Diário" />
-        <LinkButton route="/" label="Sair" />
-      </div>
+        <img id="notebook" draggable="false" :src="notebook" alt="">
     </div>
     <div id="column-3">
-      <div id="stabilo">
-        <img width="100%" :src="stabilo" alt="stabilo pen">
+      <div id="titbit">
+        <img width="100%" :src="titbit" alt="tibit">
       </div>
       <PolaroidProp id="polaroid2" :reveal="shield" label="ciao" :imgUrl="polaroid2" />
     </div>
@@ -23,12 +19,12 @@
 </template>
 
 <script setup lang="ts">
-import coffeeMug from '@/assets/imgs/coffee-mug.png'
-import stabilo from '@/assets/imgs/stabilo.png'
+import pencil from '@/assets/imgs/pencil.png'
+import titbit from '@/assets/imgs/titbit.png'
+import notebook from '@/assets/imgs/notebook.png'
 import polaroid2 from '@/assets/imgs/cat.jpg'
 
 import PolaroidProp from '@/components/PolaroidProp.vue'
-import LinkButton from '@/components/LinkButton.vue'
 import { onMounted, ref } from 'vue'
 
 const shield = ref(true)

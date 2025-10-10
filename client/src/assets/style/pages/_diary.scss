@@ -1,0 +1,25 @@
+#diary {
+    display: flex;
+    flex-direction: row;
+
+    #column-1 {
+        gap: 18rem;
+    }
+
+    #column-2 {
+        width: 46rem;
+    }
+
+    #column-3 {
+        flex-direction: column-reverse;
+        gap: 17rem;
+    }
+}
+
+#titbit {
+    transform: translate3d(-1rem, -2rem, 0) rotate(-45deg);
+}
+
+#notebook {
+    height: 100vh;
+}

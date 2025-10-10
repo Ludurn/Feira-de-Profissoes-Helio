@@ -1,0 +1,13 @@
+#home, #diary {
+  background-color: #e4a277;
+}
+
+@for $i from 1 through 3 {
+  #column-#{$i} {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    height: 100vh;
+    margin: auto;
+  }
+}
