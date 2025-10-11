@@ -8,6 +8,33 @@
     </div>
     <div id="column-2">
         <img id="notebook" draggable="false" :src="notebook" alt="">
+        <div id="page">
+          <div>
+            <transition name="fade" mode="default">
+              <p v-if="showPage" class="notes">{{ notes[0] }}</p>
+            </transition>
+          </div>
+          <div>
+            <transition name="fade" mode="default">
+              <p v-if="showPage" class="notes">{{ notes[1] }}</p>
+            </transition>
+          </div>
+          <div>
+            <transition name="fade" mode="default">
+              <p v-if="showPage" class="notes">{{ notes[2] }}</p>
+            </transition>
+          </div>
+        </div>
+        <div id="intro" :style="{ opacity: showIntro ? 1 : 0 }">
+          <div @click="priorPage" id="priorPage">
+            <p class="paragraph-100"> &lt;&lt; </p>
+            <p>Para voltar a página, <br> clique aqui</p>
+          </div>
+          <div @click="nextPage" id="nextPage">
+            <p class="paragraph-100"> &gt;&gt; </p>
+            <p>Para avançar a página, <br> clique aqui</p>
+          </div>
+        </div>
     </div>
     <div id="column-3">
       <div id="titbit">
@@ -25,13 +52,51 @@ import notebook from '@/assets/imgs/notebook.png'
 import polaroid2 from '@/assets/imgs/cat.jpg'
 
 import PolaroidProp from '@/components/PolaroidProp.vue'
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, computed } from 'vue'
+
+import bookPages from '@/assets/data/bookPages.json'
+
+const showIntro = ref(false)
+const showPage = ref(false)
+const targetPage = ref(0)
+const notes = computed<Array<string>>(
+  () => bookPages[targetPage.value]
+)
+
+function nextPage() {
+  if (targetPage.value < bookPages.length - 1) {
+    targetPage.value++
+    showPage.value = false
+
+    setTimeout(() => {
+      showPage.value = true
+    }, 500)
+  }
+}
+
+function priorPage() {
+  if (targetPage.value > 0) {
+    targetPage.value--
+    showPage.value = false
+    
+    setTimeout(() => {
+      showPage.value = true
+    }, 500)
+  }
+}
 
 const shield = ref(true)
 
 onMounted(() => {
   setTimeout(() => {
     shield.value = false
+    showIntro.value = true
+
+    setTimeout(() => {
+      showIntro.value = false
+      
+      setTimeout(() => showPage.value = true, 1000)
+    }, 2000)
   }, 1000)
 })
 

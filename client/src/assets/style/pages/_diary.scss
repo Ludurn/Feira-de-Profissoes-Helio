@@ -7,6 +7,8 @@
     }
 
     #column-2 {
+        position: relative;
+        align-items: center;
         width: 46rem;
     }
 
@@ -21,5 +23,50 @@
 }
 
 #notebook {
+    width: 90%;
     height: 100vh;
+}
+
+#page {
+    position: absolute;
+    width: 70%;
+    height: 90vh;
+    top: 5%;
+    left: 17%;
+}
+
+.notes {
+    font-size: 30px;
+}
+
+#intro {
+    transition: opacity 0.8s ease;
+}
+
+#nextPage, #priorPage {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: calc(70% / 2);
+    height: 90vh;
+    font-size: 20px;
+    text-align: center;
+    top: 5%;
+    cursor: pointer;
+
+    p {
+        margin: 0;
+    }
+}
+
+#priorPage {
+    left: 17%;
+    background-color: rgb(170, 152, 129);
+}
+
+#nextPage {
+    left: 52%;
+    background-color: rgb(167, 133, 89);
 }

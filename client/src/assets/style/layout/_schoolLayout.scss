@@ -2,6 +2,14 @@
   background-color: #e4a277;
 }
 
+#polaroid1 {
+  transform: translateX(1rem) rotate(20deg);
+}
+
+#polaroid2 {
+  transform: rotate(-15deg);
+}
+
 @for $i from 1 through 3 {
   #column-#{$i} {
     display: flex;
@@ -9,5 +17,15 @@
     width: 20rem;
     height: 100vh;
     margin: auto;
+  }
+}
+
+@for $i from 1 through 2 {
+  #polaroid#{$i} {
+    transition: 0.5s ease;
+
+    &:hover {
+      transform: rotate(0deg);
+    }
   }
 }

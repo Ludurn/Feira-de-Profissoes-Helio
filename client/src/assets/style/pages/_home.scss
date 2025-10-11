@@ -31,24 +31,6 @@
   width: 20rem;
 }
 
-#polaroid1 {
-  transform: translateX(1rem) rotate(20deg);
-}
-
-#polaroid2 {
-  transform: rotate(-15deg);
-}
-
-@for $i from 1 through 2 {
-  #polaroid#{$i} {
-    transition: 0.5s ease;
-
-    &:hover {
-      transform: rotate(0deg);
-    }
-  }
-}
-
 #options {
   display: flex;
   align-items: center;
