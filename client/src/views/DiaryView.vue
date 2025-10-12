@@ -4,7 +4,7 @@
       <div id="pencil">
         <img width="100%" :src="pencil" alt="pencil">
       </div>
-      <PolaroidProp id="polaroid1" :reveal="shield" label="ola" :imgUrl="polaroid2" />
+      <PolaroidProp id="polaroid1" :reveal="shield" label=":D" :imgUrl="polaroid2" />
     </div>
     <div id="column-2">
         <img id="notebook" draggable="false" :src="notebook" alt="">
@@ -40,7 +40,7 @@
       <div id="titbit">
         <img width="100%" :src="titbit" alt="tibit">
       </div>
-      <PolaroidProp id="polaroid2" :reveal="shield" label="ciao" :imgUrl="polaroid2" />
+      <PolaroidProp id="polaroid2" :reveal="shield" label="school" :imgUrl="polaroid2" />
     </div>
   </div>
 </template>
@@ -95,7 +95,7 @@ onMounted(() => {
     setTimeout(() => {
       showIntro.value = false
       
-      setTimeout(() => showPage.value = true, 1000)
+      setTimeout(() => showPage.value = true, 500)
     }, 2000)
   }, 1000)
 })
