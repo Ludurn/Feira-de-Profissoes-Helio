@@ -7,3 +7,24 @@
 .fade-enter-to, .fade-leave-from {
   opacity: 1;
 }
+
+.scroll-enter-from {
+  opacity: 0;
+  transform: translateY(120vh);
+}
+.scroll-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+.scroll-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+.scroll-leave-to {
+  opacity: 0;
+  transform: translateY(-120vh);
+}
+.scroll-enter-active,
+.scroll-leave-active {
+  transition: all 1s ease-in-out;
+}

@@ -2,7 +2,9 @@
   <nav>
     
   </nav>
-  <router-view/>
+  <transition name="scroll" mode="out-in" >
+    <router-view :key="$route.fullPath" />
+  </transition>
   <transition name="fade" mode="default">
     <ZoomProp/>
   </transition>

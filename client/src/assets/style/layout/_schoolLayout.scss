@@ -1,13 +1,5 @@
 @import '../abstracts/variables';
 
-#home, #diary {
-  background-color: $background-blend;
-  background-image: url('@/assets/imgs/wall-texture.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-blend-mode: overlay;
-}
-
 #polaroid1 {
   transform: translateX(1rem) rotate(20deg);
 }
