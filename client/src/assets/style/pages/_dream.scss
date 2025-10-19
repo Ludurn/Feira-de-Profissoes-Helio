@@ -2,14 +2,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(27, 1, 27);
     width: 100vw;
     height: 100vh;
 
+    background-color: #0b011b;
     color: wheat;
     text-align: center;
 
-    overflow: scroll;
+    overflow-y: scroll;
     overflow-x: hidden;
 
     scrollbar-width: none;
@@ -17,11 +17,31 @@
 }
 
 #star-field {
-    position: relative;
+    position: fixed;
+    z-index: 0;
 }
 
 #content {
-    position: absolute;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15%;
+
     width: 100vw;
     height: 100vh;
+}
+
+#sprite {
+    content: '';
+    width: 500px;
+    height: 500px;
+    background-color: aliceblue;
+
+    img {
+        width: 500px;
+        height: 500px;
+    }
 }
