@@ -24,6 +24,11 @@
               <p v-if="showPage" class="notes">{{ notes[2] }}</p>
             </transition>
           </div>
+          <div id="page-index">
+            <transition name="fade" mode="default">
+              <p v-if="showPage" class="notes">{{ (targetPage+1) + '/' + bookPages.length }}</p>
+            </transition>
+          </div>
         </div>
         <div id="intro" :style="{ opacity: showIntro ? 1 : 0 }">
           <div @click="priorPage" id="priorPage">

@@ -29,14 +29,27 @@
 
 #page {
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
     width: 70%;
     height: 90vh;
     top: 5%;
     left: 17%;
 }
 
+#page-index {
+    position: absolute;
+    bottom: 1%;
+    right: 1%;
+    p {
+        margin: 0;
+    }
+}
+
 .notes {
     font-size: 30px;
+    text-align: justify;
 }
 
 #intro {
