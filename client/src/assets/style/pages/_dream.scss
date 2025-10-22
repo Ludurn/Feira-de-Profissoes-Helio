@@ -27,21 +27,70 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 15%;
+    
+    gap: 5%;
 
     width: 100vw;
     height: 100vh;
-}
 
-#sprite {
-    content: '';
-    width: 500px;
-    height: 500px;
-    background-color: aliceblue;
+    h1 {
+      margin: 0;
+      margin-top: 10%;
+    }
 
     img {
-        width: 500px;
-        height: 500px;
+      width: 50%;
     }
 }
+
+#filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: fit-content;
+
+  gap: 5%;
+
+  p {
+    font-size: 30px;
+  }
+}
+
+.btns-area {
+  width: fit-content;
+  padding: 0.1rem 3.5rem;
+
+  border: solid;
+  border-radius: 5rem;
+  cursor: pointer;
+}
+
+#avatar-gallery {
+  display: flex;
+  flex-direction: column;
+  
+  gap: 5rem;
+  margin-top: 2%;
+}
+
+#avatar-photos {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+    width: 80%;
+    gap: 10%;
+    
+    margin: auto;
+
+    .avatars-fig {
+        width: 20%;
+
+        img {
+          width: 100%;
+        }
+    }
+}
+

@@ -1,0 +1,107 @@
+[
+  {
+    "job": "Marketing",
+    "img": "/avatars/01.jpeg",
+    "area": "Marketing"
+  },
+  {
+    "job": "Publicidade e Propaganda",
+    "img": "/avatars/02.jpg",
+    "area": "Marketing"
+  },
+  {
+    "job": "Fisioterapia",
+    "img": "/avatars/04.jpg",
+    "area": "Saúde"
+  },
+  {
+    "job": "Engenharia de Software",
+    "img": "/avatars/05.jpg",
+    "area": "TI"
+  },
+  {
+    "job": "Ciência da Computação",
+    "img": "/avatars/06.jpg",
+    "area": "TI"
+  },
+  {
+    "job": "Farmácia",
+    "img": "/avatars/07.jpg",
+    "area": "Saúde"
+  },
+  {
+    "job": "Psicologia",
+    "img": "/avatars/08.jpg",
+    "area": "Saúde"
+  },
+  {
+    "job": "Vendas On-line",
+    "img": "/avatars/09.jpg",
+    "area": "Marketing"
+  },
+  {
+    "job": "Marketing",
+    "img": "/avatars/10.jpg",
+    "area": "Marketing"
+  },
+  {
+    "job": "Engenharia de Software",
+    "img": "/avatars/11.jpg",
+    "area": "TI"
+  },
+  {
+    "job": "Direito",
+    "img": "/avatars/12.jpg",
+    "area": "Marketing"
+  },
+  {
+    "job": "Nutrição",
+    "img": "/avatars/13.jpg",
+    "area": "Saúde"
+  },
+  {
+    "job": "Nutrição",
+    "img": "/avatars/14.jpg",
+    "area": "Saúde"
+  },
+  {
+    "job": "Engenharia da Computação",
+    "img": "/avatars/15.jpg",
+    "area": "TI"
+  },
+  {
+    "job": "Engenharia Aeronáutica",
+    "img": "/avatars/16.jpg",
+    "area": "TI"
+  },
+  {
+    "job": "Biomedicina",
+    "img": "/avatars/17.jpg",
+    "area": "Saúde"
+  },
+  {
+    "job": "Nutrição",
+    "img": "/avatars/18.jpg",
+    "area": "Saúde"
+  },
+  {
+    "job": "Administração",
+    "img": "/avatars/19.jpg",
+    "area": "Marketing"
+  },
+  {
+    "job": "Análise e Desenvolvimento de Sistemas",
+    "img": "/avatars/20.jpg",
+    "area": "TI"
+  },
+  {
+    "job": "Psicologia",
+    "img": "/avatars/21.jpg",
+    "area": "Saúde"
+  },
+  {
+    "job": "Biomedicina",
+    "img": "/avatars/22.jpg",
+    "area": "Saúde"
+  }
+]
