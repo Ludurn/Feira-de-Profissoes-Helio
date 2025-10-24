@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
 import DiaryView from '@/views/DiaryView.vue'
+import LockerView from '@/views/LockerView.vue'
 import DreamView from '@/views/DreamView.vue'
 
 const routes: Array<RouteRecordRaw> = [
@@ -13,6 +14,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/diary',
     name: 'diary',
     component: DiaryView
+  },
+  {
+    path: '/locker',
+    name: 'locker',
+    component: LockerView
   },
   {
     path: '/dream',

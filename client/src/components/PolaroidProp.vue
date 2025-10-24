@@ -25,7 +25,7 @@ const props = defineProps<{ label: string, imgUrl: string, reveal: boolean }>()
 const { activate } = usePropZoom()
 
 function zoomPolaroid() {
-    activate({ label: props.label, imgUrl: props.imgUrl })
+    activate({ label: props.label, imgUrl: props.imgUrl, type: 'polaroid' })
 }
 
 </script>
