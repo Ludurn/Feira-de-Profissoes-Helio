@@ -1,6 +1,7 @@
 #diary {
     display: flex;
     flex-direction: row;
+    overflow: hidden;
 
     #column-1 {
         gap: 18rem;

@@ -8,6 +8,15 @@
   opacity: 1;
 }
 
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.8s ease;
+}
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
 .scroll-enter-from {
   opacity: 0;
   transform: translateY(120vh);
