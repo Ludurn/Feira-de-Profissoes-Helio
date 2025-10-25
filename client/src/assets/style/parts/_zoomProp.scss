@@ -76,6 +76,29 @@
           }
       }
     }
+
+    #post-it {
+      width: $zoom-post-w;
+      margin: 0 auto;
+      cursor: default;
+      
+      p {
+        &#main {
+          display: block;
+          width: 80%;
+          top: 9%;
+          left: 9%;
+          word-wrap: break-word;
+          text-align: justify;
+
+          font-size: 1.6rem;
+        }
+
+        &#thumb {
+          display: none;
+        }
+      }
+    }
 }
 
 #disable-zoom {
@@ -89,6 +112,10 @@
 
     &.disable-camera {
       width: calc($zoom-cam-w + 5.5rem);
+    }
+
+    &.disable-postIt {
+      width: calc($zoom-post-w + 5.5rem);
     }
 
     p {

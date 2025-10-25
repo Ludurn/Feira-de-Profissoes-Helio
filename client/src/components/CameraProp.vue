@@ -3,31 +3,39 @@
     <img @click="zoomCamera" :src="cameraTemplate" />
     <div class="overlay nxt" @click="nextPhoto"></div>
     <div class="overlay pri" @click="priorPhoto"></div>
-    <div class="overlay dsp" :style="{ backgroundImage: `url(${currentPhoto})` }"></div>
+    <div class="overlay dsp" :style="{ backgroundImage: `url(${displayedPhoto})` }"></div>
   </div>
 </template>
 
 <script setup lang="ts">
 import cameraTemplate from '@/assets/imgs/camera.png'
-import catImg from '@/assets/imgs/cat.jpg'
-import catStb from '@/assets/imgs/stabilo.png'
+
+import cameraPhotos from '@/assets/data/cameraPhotos.json'
 
 import { usePropZoom } from '@/composables/usePropZoom'
+
 import { ref } from 'vue'
 
 const { activate } = usePropZoom()
-const currentPhoto = ref(catImg)
+const currentPhoto = ref(0)
+const displayedPhoto = ref(cameraPhotos[0])
 
 function zoomCamera() {
   activate({ label: '', imgUrl: cameraTemplate, type: 'camera' })
 }
 
 function nextPhoto() {
-  currentPhoto.value = catStb
+  if (currentPhoto.value < cameraPhotos.length - 1) {
+    currentPhoto.value = currentPhoto.value + 1
+    displayedPhoto.value = cameraPhotos[currentPhoto.value]
+  }
 }
 
 function priorPhoto() {
-  currentPhoto.value = catImg
+  if (currentPhoto.value > 0) {
+    currentPhoto.value = currentPhoto.value - 1
+    displayedPhoto.value = cameraPhotos[currentPhoto.value]
+  }
 }
 
 </script>
