@@ -7,7 +7,7 @@
         Nós não estamos apenas terminando mais um ano mas, também, um ciclo. Assim, sonhamos com um futuro onde
         o fim dessa etapa inaugurará o início de muitas outras.
       </p>
-      <img :src="graduationCap"/>
+      <img id="graduation-cap" :src="graduationCap"/>
       <div id="filter">
         <div @click="filter_job(area)" v-for="area in areas.filter(a => a.title !== 'Default')" :key="area.title" :class="['btns-area', area.title[0], { 'pressed': selectedArea === area.title }]">
           <p> {{ area.title }} </p>

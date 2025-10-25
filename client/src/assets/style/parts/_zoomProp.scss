@@ -1,33 +1,54 @@
+@import '../base/responsive';
 @import '../abstracts/variables';
 
 .zoom {
-    position: absolute;
+    position: fixed;
     z-index: 10;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100.2vw;
+    width: 100vw;
     height: 100vh;
-    top: 0%;
+    top: 0;
+    left: 0;
     gap: 3%;
     padding-bottom: 7rem;
     background-color: rgba(0, 0, 0, 0.6);
+
+    @include respond-to(mobile) {
+      position: fixed;
+      height: auto;
+      min-height: 100dvh;
+      max-height: 100dvh;
+      padding: 0;
+      left: 0;
+    }
 
     .polaroid-body {
         width: $zoom-por-w;
         height: 30rem;
         cursor: default;
+
+        @include respond-to(mobile) {
+          width: 30rem;
+          height: 35rem;
+        }
     }
 
     .photo {
         width: $zoom-photo-w;
         height: $zoom-photo-h;
+
+        @include respond-to(mobile) {
+          width: 26rem;
+          height: 26.5rem;
+        }
     }
 
     .label {
         margin: 1rem;
-        font-size: 30px;
+        font-size: 1.875rem;
     }
 
     .tape {
@@ -82,6 +103,13 @@
       margin: 0 auto;
       cursor: default;
       
+      @include respond-to(mobile) {
+        width: 40rem;
+      }
+      @include respond-to(tablet) {
+        width: 37rem;
+      }
+
       p {
         &#main {
           display: block;
@@ -92,6 +120,13 @@
           text-align: justify;
 
           font-size: 1.6rem;
+
+          @include respond-to(mobile) {
+            font-size: 2.1rem;
+          }
+          @include respond-to(tablet) {
+            font-size: 2rem;
+          }
         }
 
         &#thumb {
@@ -106,12 +141,20 @@
     flex-direction: row-reverse;
     color: white;
 
+    @include respond-to(mobile) {
+      margin-bottom: 5%;
+    }
+
     &.disable-polaroid {
       width: calc($zoom-por-w + 5.5rem);
     }
 
     &.disable-camera {
       width: calc($zoom-cam-w + 5.5rem);
+
+      @include respond-to(mobile) {
+        width: 35rem;
+      }
     }
 
     &.disable-postIt {

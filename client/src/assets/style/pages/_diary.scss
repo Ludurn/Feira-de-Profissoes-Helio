@@ -1,10 +1,28 @@
+@import '../base/responsive';
+
 #diary {
     display: flex;
     flex-direction: row;
     overflow: hidden;
 
+    @include respond-to(mobile) {
+      flex-direction: column;
+      gap: 5rem;
+    }
+    @include respond-to(tablet) {
+      flex-direction: column;
+      gap: 5rem;
+    }
+
     #column-1 {
         gap: 18rem;
+
+        @include respond-to(mobile) {
+          gap: 0;
+        }
+        @include respond-to(tablet) {
+          gap: 0;
+        }
     }
 
     #column-2 {
@@ -16,17 +34,56 @@
     #column-3 {
         flex-direction: column-reverse;
         gap: 17rem;
+
+        @include respond-to(mobile) {
+          flex-direction: row;
+          gap: 0;
+        }
+        @include respond-to(tablet) {
+          flex-direction: row;
+          gap: 0;
+        }
     }
+}
+
+#pencil {
+  @include respond-to(mobile) {
+    width: 17rem;
+  }
+  @include respond-to(tablet) {
+    width: 20rem;
+    transform: translate3d(-7rem, 2rem, 0);
+  }
 }
 
 #titbit {
     transform: translate3d(-1rem, -2rem, 0) rotate(-45deg);
     cursor: pointer;
+
+    @include respond-to(mobile) {
+      width: 17rem;
+      transform: translate3d(-2.3rem, 1.8rem, 0) rotate(25deg);
+    }
+    @include respond-to(tablet) {
+      width: 17rem;
+      transform: translate3d(-2.3rem, 1.8rem, 0) rotate(25deg);
+    }
 }
 
 #notebook {
     width: 90%;
     height: 100vh;
+
+    @include respond-to(mobile) {
+      width: 80%;
+      height: 65vh;
+      margin: auto;
+    }
+    @include respond-to(tablet) {
+      width: 80%;
+      height: 65vh;
+      margin: auto;
+    }
 }
 
 #page {
@@ -38,6 +95,17 @@
     height: 90vh;
     top: 5%;
     left: 17%;
+
+    @include respond-to(mobile) {
+      width: 60%;
+      height: 60vh;
+      left: 23%;
+    }
+    @include respond-to(tablet) {
+      width: 60%;
+      height: 60vh;
+      left: 23%;
+    }
 }
 
 #page-index {
@@ -105,6 +173,15 @@
     top: 5%;
     cursor: pointer;
 
+    @include respond-to(mobile) {
+      width: cal(60% / 2);
+      height: 55vh;
+    }
+    @include respond-to(tablet) {
+      width: cal(60% / 2);
+      height: 55vh;
+    }
+
     p {
         margin: 0;
     }
@@ -119,3 +196,22 @@
     left: 52%;
     background-color: rgb(167, 133, 89);
 }
+
+#polaroid1 {
+  @include respond-to(mobile) {
+    transform: translate3d(-1rem, 2.2rem, 0) rotate(35deg);
+  }
+  @include respond-to(tablet) {
+    transform: translate3d(2rem, 2.2rem, 0) rotate(35deg);
+  }
+}
+
+#polaroid2 {
+ @include respond-to(mobile) {
+    transform: translate3d(0.5rem, -3rem, 0) rotate(-10deg);
+  }
+  @include respond-to(tablet) {
+    transform: translate3d(0.5rem, -3rem, 0) rotate(-10deg);
+  }
+}
+

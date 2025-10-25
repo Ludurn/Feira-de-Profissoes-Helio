@@ -1,15 +1,44 @@
+@import '../base/responsive';
+
 #home {
   display: flex;
   flex-direction: row;
 
+  @include respond-to(mobile) {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  @include respond-to(tablet) {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
     #column-1 {
       gap: 12rem;
+
+      @include respond-to(mobile) {
+        gap: 0;
+        margin-top: 2rem;
+      }
+      @include respond-to(tablet) {
+        gap: 0;
+        margin-top: 2rem;
+      }
     }
 
     #column-2 {
       width: 46rem;
       align-items: center;
       text-align: center;
+
+      @include respond-to(mobile) {
+        flex-direction: column;
+        height: 40rem;
+      }
+      @include respond-to(tablet) {
+        flex-direction: column;
+        height: 40rem;
+      }
 
       h1 {
         margin-top: 7rem;
@@ -19,16 +48,39 @@
 
     #column-3 {
       gap: 7rem;
+
+      @include respond-to(mobile) {
+        flex-direction: row-reverse;
+        gap: 3rem;
+      }
+      @include respond-to(tablet) {
+        flex-direction: row-reverse;
+        gap: 3rem;
+      }
     }
 }
 
 #coffee-mug {
   width: 23rem;
   transform: translate3d(-2rem, -3rem, 0);
+
+  @include respond-to(mobile) {
+    transform: translate3d(-5rem, -6rem, 0);
+  }
+  @include respond-to(tablet) {
+    transform: translate3d(-15rem, -4rem, 0);
+  }
 }
 
 #stabilo {
   width: 20rem;
+
+  @include respond-to(mobile) {
+    transform: translateY(-3rem) rotate(70deg);
+  }
+  @include respond-to(tablet) {
+    transform: translate3d(7rem, 2rem, 0) rotate(70deg);
+  }
 }
 
 #options {
@@ -37,4 +89,27 @@
   max-width: fit-content;
   gap: 5rem;
   margin-top: 10%;
+
+  @include respond-to(mobile) {
+    margin: 0;
+  }
 }
+
+#home > #column-1 > #polaroid1 {
+  @include respond-to(mobile) {
+    transform: translate3d(-1.5rem, 5rem, 0) rotate(-20deg);
+  }
+  @include respond-to(tablet) {
+    transform: translate3d(6rem, 4rem, 0) rotate(-20deg);
+  }
+}
+
+#home > #column-3 > #polaroid2 {
+  @include respond-to(mobile) {
+    transform: translate3d(1rem, 2rem, 0) rotate(10deg);
+  }
+  @include respond-to(tablet) {
+    transform: translate3d(-5rem, 12rem, 0) rotate(10deg);
+  }
+}
+

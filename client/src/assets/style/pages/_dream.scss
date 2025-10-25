@@ -1,3 +1,5 @@
+@import '../base/responsive';
+
 #dream {
     display: flex;
     align-items: center;
@@ -9,6 +11,13 @@
 
     scrollbar-width: none;
     -ms-overflow-style: none;
+
+    @include respond-to(mobile) {
+      padding-top: 6rem;
+    }
+    @include respond-to(tablet) {
+      padding-top: 6rem;
+    }
 }
 
 #star-field {
@@ -30,14 +39,25 @@
       margin: 0;
       margin-top: 2%;
     }
-
-    img {
-      width: 50%;
-    }
 }
 
 .p-dream {
   width: 65%;
+
+  @include respond-to(mobile) {
+    width: 85%;
+  }
+}
+
+#graduation-cap {
+  width: 50%;
+
+  @include respond-to(mobile) {
+    width: 100%;
+  }
+  @include respond-to(tablet) {
+    width: 70%;
+  }
 }
 
 #filter {
@@ -50,7 +70,7 @@
   gap: 7%;
 
   p {
-    font-size: 30px;
+    font-size: 1.875rem;
   }
 }
 
@@ -61,6 +81,10 @@
   border-radius: 1rem;
   cursor: pointer;
   transition: all 0.5s ease-in;
+
+  @include respond-to(mobile) {
+    padding: 0rem 2rem;
+  }
 
   &.T {
     border: solid rgba(0, 122, 35, 0.6);
@@ -130,6 +154,13 @@
 
   gap: 5rem;
   margin-top: 2%;
+
+  @include respond-to(mobile) {
+    margin-top: 10%;
+  }
+  @include respond-to(tablet) {
+    margin-top: 5%;
+  }
 }
 
 #area-label {
@@ -155,6 +186,13 @@
     .avatars-fig {
       width: 20%;
       position: relative;
+
+      @include respond-to(mobile) {
+        width: 70%;
+      }
+      @include respond-to(tablet) {
+        width: 30%;
+      }
 
       .mask-wrapper {
         position: relative;

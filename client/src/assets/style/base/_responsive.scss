@@ -1,0 +1,13 @@
+$mobile: 767px;
+$tablet: 1024px;
+$desktop: 1025px;
+
+@mixin respond-to($device) {
+  @if $device == mobile {
+    @media (max-width: $mobile) { @content; }
+  } @else if $device == tablet {
+    @media (min-width: $mobile + 1) and (max-width: $tablet) { @content; }
+  } @else if $device == desktop {
+    @media (min-width: $desktop) { @content; }
+  }
+}

@@ -1,3 +1,5 @@
+@import '../base/responsive';
+
 .link-button {
     position: relative;
     display: flex;
@@ -6,6 +8,10 @@
     width: 13rem;
     opacity: 0.5;
     cursor: pointer;
+
+    @include respond-to(mobile) {
+      opacity: 0.8;
+    }
 
     &:hover {
         opacity: 1;
