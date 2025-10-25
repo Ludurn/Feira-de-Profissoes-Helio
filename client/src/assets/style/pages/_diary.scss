@@ -21,6 +21,7 @@
 
 #titbit {
     transform: translate3d(-1rem, -2rem, 0) rotate(-45deg);
+    cursor: pointer;
 }
 
 #notebook {
@@ -32,7 +33,7 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    gap: 5%;
+    gap: 1%;
     width: 70%;
     height: 90vh;
     top: 5%;
@@ -49,8 +50,42 @@
 }
 
 .notes {
-    font-size: 30px;
+    font-size: 1.5rem;
     text-align: justify;
+}
+
+.drawings {
+  margin: 0 auto;
+
+  img {
+    width: 20rem;
+    height: 10rem;
+
+    -webkit-mask-image: url('@/assets/imgs/cloud.png');
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 110% auto;
+    -webkit-mask-position: center;
+
+    mask-image: url('@/assets/imgs/cloud.png');
+    mask-repeat: no-repeat;
+    mask-size: 110% auto;
+    mask-position: center;
+
+    &.last-draw {
+      width: 20rem;
+      height: auto;
+
+      -webkit-mask-image: url('@/assets/imgs/cloud.png');
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: cover;
+      -webkit-mask-position: center;
+
+      mask-image: url('@/assets/imgs/cloud.png');
+      mask-repeat: no-repeat;
+      mask-size: cover;
+      mask-position: center;
+    }
+  }
 }
 
 #intro {
