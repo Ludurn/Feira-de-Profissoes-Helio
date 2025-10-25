@@ -10,7 +10,7 @@
       <h1 class="title-80">Comunidade <br> do <br> Hélio</h1>
       <div id="options">
         <LinkButton route="/diary" label="Diário" />
-        <LinkButton route="/" label="Sair" />
+        <LinkButton route="/gallery" label="Galeria" />
       </div>
     </div>
     <div id="column-3">

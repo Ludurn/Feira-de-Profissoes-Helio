@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div id="register-form">
     <form @submit.prevent method="POST" enctype="multipart/form-data">
       <input type="text" name="name" v-model="txt_name">
       <br><br>
@@ -14,9 +14,6 @@
       <p>{{ message }}</p>
     </div>
     <br><br>
-    <button @click="getImage">get image</button>
-    <br><br>
-    <img :src="image_url" alt="" width="20%">
   </div>
 </template>
 <script setup lang="ts">
@@ -58,19 +55,4 @@ const submitForm = async () => {
     message.value = err+''
   }
 }
-
-const getImage = async () => {
-  try {
-    await axios.get(`${API_URL.value}/getImage/1`)
-      .then((response) => {
-        image_url.value = response.data.image_url
-      })
-      .catch((error) => {
-        message.value = error
-      })
-  } catch (err: unknown) {
-    message.value = err+''
-  }
-}
-
 </script>

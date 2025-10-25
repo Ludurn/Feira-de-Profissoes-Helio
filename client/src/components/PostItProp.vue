@@ -7,7 +7,6 @@
 </template>
 
 <script setup lang="ts">
-import postIt from '@/assets/imgs/note.png'
 import emptyPostIt from '@/assets/imgs/empty-note.png'
 
 import { usePropZoom } from '@/composables/usePropZoom'
