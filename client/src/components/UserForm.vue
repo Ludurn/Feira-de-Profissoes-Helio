@@ -5,8 +5,8 @@
       <br><br>
       <input type="email" name="email" v-model="txt_email">
       <br><br>
-      <input type="file" name="arquivo" @change="handleFileChange"
-        accept=".png, .gif, application/pdf" multiple />
+      <input type="file" name="arquivo" @change="handleFileChange" accept=".png, .jpeg, .gif, application/pdf"
+        multiple />
       <br><br>
       <input type="submit" @click="submitForm" value="SEND">
     </form>
@@ -52,7 +52,7 @@ const submitForm = async () => {
       message.value = response.data
     }
   } catch (err: unknown) {
-    message.value = err+''
+    message.value = err + ''
   }
 }
 </script>
